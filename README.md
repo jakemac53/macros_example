@@ -39,6 +39,9 @@ do this by clicking the following button:
 
 ![preview button](https://github.com/jakemac53/macros_example/blob/main/images/preview_button.png)
 
+You will also need to set the `"dart.experimentalMacroSupport": true,` option
+in your VsCode settings.
+
 Reload the plugin and you should be good to go!
 
 Note that support here is still very early days, so please file issues as you
