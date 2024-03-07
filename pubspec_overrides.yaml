@@ -1,5 +1,13 @@
-# Override to the latest version of the in progress API.
 dependency_overrides:
+  # package:build overrides
+  build_modules:
+    path: ../build/build_modules
+  build_web_compilers:
+    path: ../build/build_web_compilers
+  build_runner:
+    path: ../build/build_runner
+
+  # Override to the latest version of the in progress API.
   _fe_analyzer_shared:
     path: ../dart-lang-sdk/sdk/pkg/_fe_analyzer_shared
   _js_interop_checks:

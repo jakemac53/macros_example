@@ -1,7 +1,13 @@
 name: macros_example
 environment:
-  sdk: ^3.3.0
+  sdk: ^3.3.0-0
 publish_to: none
+
+dev_dependencies:
+  build_runner: any
+  build_web_compilers: any
+  flutter:
+    sdk: flutter
 
 # Override to the latest version of the in progress api.
 dependency_overrides:
