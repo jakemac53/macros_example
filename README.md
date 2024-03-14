@@ -30,19 +30,21 @@ You can run the example under `bin` normally on the Dart VM, by passing
 
 `dart --enable-experiment=macros bin/auto_to_string.dart`
 
+You can also run/debug from your IDE using the instructions below.
+
 # Setting up your IDE
 
-## VsCode
+## VS Code
 
-You will want to be on the preview channel for the `DartCode` plugin, you can
-do this by clicking the following button:
+You will need to set the `"dart.experimentalMacroSupport": true,` option in your
+VS Code settings (it's already set in `.vscode/settings.json` for this project).
 
-![preview button](https://github.com/jakemac53/macros_example/blob/main/images/preview_button.png)
+To run/debug from VS Code, you will need to add `"--enable-experiment=macros"`
+to `toolArgs` in your `.vscode/launch.json` (it's already done for this
+project).
 
-You will also need to set the `"dart.experimentalMacroSupport": true,` option
-in your VsCode settings.
-
-Reload the plugin and you should be good to go!
+To run this example, open `bin/auto_to_string.dart` and press `F5` (or click the
+`Run`/`Debug` CodeLens links).
 
 Note that support here is still very early days, so please file issues as you
 find them.

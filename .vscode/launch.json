@@ -1,0 +1,13 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "macros_example",
+			"request": "launch",
+			"type": "dart",
+			"toolArgs": [
+				"--enable-experiment=macros",
+			],
+		}
+	]
+}
