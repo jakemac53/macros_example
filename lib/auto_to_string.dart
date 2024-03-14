@@ -15,14 +15,17 @@ macro class AutoToString implements MethodDefinitionMacro {
     final clazz = await builder.typeDeclarationOf(method.definingType);
     final fields = await builder.fieldsOf(clazz);
     builder.augment(FunctionBodyCode.fromParts([
-      '=> """\n${clazz.identifier.name} {\n',
+      '{\n',
+      '    // You can add breakpoints here!\n',
+      '    return """\n${clazz.identifier.name} {\n',
       for (var field in fields)
         ...[
           '  ${field.identifier.name}: \${',
           field.identifier,
           '}\n',
         ],
-      '}""";',
+      '}""";\n',
+      '  }'
     ]));
   }
 }
