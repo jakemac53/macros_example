@@ -8,6 +8,7 @@
 			"toolArgs": [
 				"--enable-experiment=macros",
 			],
+			"program": "bin/auto_to_string.dart",
 		}
 	]
 }
