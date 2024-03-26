@@ -4,6 +4,10 @@
 //
 import 'package:macros_example/json_serializable.dart';
 
+void main() {
+  print(User.fromJson({'name': 'jack', 'age': 1}).name);
+}
+
 @JsonSerializable()
 class User {
   final int age;
