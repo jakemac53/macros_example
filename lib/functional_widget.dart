@@ -25,8 +25,11 @@ macro class FunctionalWidget implements FunctionTypesMacro {
   Future<void> buildTypesForFunction(
       FunctionDeclaration function, TypeBuilder builder) async {
     if (!function.identifier.name.startsWith('_')) {
-      throw ArgumentError(
-          'FunctionalWidget should only be used on private declarations');
+      throw DiagnosticException(Diagnostic(
+          DiagnosticMessage(
+              'FunctionalWidget should only be used on private declarations',
+              target: function.asDiagnosticTarget),
+          Severity.error));
     }
     if (function.positionalParameters.isEmpty ||
         // TODO: A proper type check here.
@@ -34,9 +37,14 @@ macro class FunctionalWidget implements FunctionTypesMacro {
                 .identifier
                 .name !=
             'BuildContext') {
-      throw ArgumentError(
-          'FunctionalWidget functions must have a BuildContext argument as the '
-          'first positional argument');
+      throw DiagnosticException(Diagnostic(
+          DiagnosticMessage(
+              'FunctionalWidget functions must have a BuildContext argument as the '
+              'first positional argument',
+              target: function.positionalParameters.isEmpty
+                  ? function.asDiagnosticTarget
+                  : function.positionalParameters.first.asDiagnosticTarget),
+          Severity.error));
     }
 
     var widgetName = widgetIdentifier?.name ??
@@ -55,7 +63,8 @@ macro class FunctionalWidget implements FunctionTypesMacro {
     var widget = await builder.resolveIdentifier(
         Uri.parse('package:flutter/src/widgets/framework.dart'), 'Widget');
     // ignore: deprecated_member_use
-    var override = await builder.resolveIdentifier(Uri.parse('dart:core'), 'override');
+    var override =
+        await builder.resolveIdentifier(Uri.parse('dart:core'), 'override');
     builder.declareType(
         widgetName,
         DeclarationCode.fromParts([
