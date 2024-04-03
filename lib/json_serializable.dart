@@ -258,13 +258,13 @@ extension _ on FieldDeclaration {
     for (var annotation in metadata) {
       if (annotation is! ConstructorMetadataAnnotation) continue;
       if (annotation.type.identifier.name != 'JsonKey') continue;
-      var declaration = await builder.typeDeclarationOf(annotation.type.identifier);
+      var declaration =
+          await builder.typeDeclarationOf(annotation.type.identifier);
       if (declaration.library.uri != jsonKeyUri) continue;
 
       if (jsonKey != null) {
         builder.report(Diagnostic(
-            DiagnosticMessage(
-                'Only one JsonKey annotation is allowed.',
+            DiagnosticMessage('Only one JsonKey annotation is allowed.',
                 target: annotation.asDiagnosticTarget),
             Severity.error));
       } else {

@@ -2,6 +2,16 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Flutter (web, debug)",
+			"type": "dart",
+			"request": "launch",
+			"program": "lib/main.dart",
+			"toolArgs": [
+				"--enable-experiment=macros",
+			],
+			"deviceId": "chrome"
+		},
+		{
 			"name": "macros_example",
 			"request": "launch",
 			"type": "dart",

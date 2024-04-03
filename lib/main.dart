@@ -3,29 +3,22 @@
 // that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:macros_example/json_serializable.dart';
-
-final jake = User.fromJson({
-  'name': 'Jake',
-  'age': 10,
-});
+// ignore: unnecessary_import
+import 'package:flutter/widgets.dart';
+import 'package:macros_example/functional_widget.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+@FunctionalWidget()
+Widget _myApp(BuildContext context) {
+  return MaterialApp(
+    title: 'Flutter Demo',
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -60,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '${jake.name} have pushed the button this many times:',
+              'You have pushed the button this many times:',
             ),
             Text(
               '$_counter',
@@ -76,21 +69,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-@JsonSerializable()
-class User {
-  final int age;
-  final String name;
-}
-
-@JsonSerializable()
-class UserAccount extends User {
-  final Login login;
-}
-
-@JsonSerializable()
-class Login {
-  final String username;
-  final String password;
 }

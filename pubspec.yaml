@@ -1,7 +1,7 @@
 name: macros_example
 environment:
   sdk: ^3.5.0-15.0.dev
-  publish_to: none
+publish_to: none
 
 dependencies:
   macros: ^0.1.0
