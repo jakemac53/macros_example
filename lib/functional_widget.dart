@@ -62,8 +62,8 @@ macro class FunctionalWidget implements FunctionTypesMacro {
     // ignore: deprecated_member_use
     var widget = await builder.resolveIdentifier(
         Uri.parse('package:flutter/src/widgets/framework.dart'), 'Widget');
-    // ignore: deprecated_member_use
     var override =
+        // ignore: deprecated_member_use
         await builder.resolveIdentifier(Uri.parse('dart:core'), 'override');
     builder.declareType(
         widgetName,

@@ -4,11 +4,11 @@ environment:
 publish_to: none
 
 dependencies:
+  flutter:
+    sdk: flutter
   macros: ^0.1.0
 
 dependency_overrides:
-  flutter:
-    sdk: flutter
   macros:
     git:
       url: https://github.com/dart-lang/sdk.git
