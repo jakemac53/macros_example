@@ -3,8 +3,6 @@
 // that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-// ignore: unnecessary_import
-import 'package:flutter/widgets.dart';
 import 'package:macros_example/functional_widget.dart';
 
 void main() => runApp(const MyApp());
