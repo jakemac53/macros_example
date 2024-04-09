@@ -25,10 +25,12 @@ file, and send a PR to update. Or, file an issue on this repo.
 
 # Running the example
 
-You can run the example under `bin` normally on the Dart VM, by passing
-`--enable-experiment=macros`. So the full command would be:
+You can run the example with the flutter tool, by passing
+`--enable-experiment=macros`. Due to
+[#146451](https://github.com/flutter/flutter/issues/146451) only release mode
+is supported. So the full command would be:
 
-`dart --enable-experiment=macros bin/auto_to_string.dart`
+`flutter run --enable-experiment=macros --release`
 
 You can also run/debug from your IDE using the instructions below.
 
@@ -49,6 +51,10 @@ To run this example, open `bin/auto_to_string.dart` and press `F5` (or click the
 Note that support here is still very early days, so please file issues as you
 find them.
 
-## Intellij
+## IntelliJ
 
-TODO: Add instructions once available
+Use IntelliJ 2024.1 or newer with Dart plugin version 241.16006 or newer.
+
+To run/debug from IntelliJ, you will need to add
+`--enable-experiment=macros --release` as "Additional run args" to the
+"Run/Debug Configuration" for your app.
