@@ -2,26 +2,12 @@ An package to use as a starting point for trying out Dart macros.
 
 # SDK setup
 
-First, you need to ensure your SDK is compatible with this package, and also
-that the versions of the various dependencies are lined up. You can use
-either a released dev SDK or a local build of the SDK.
+First, you need to ensure your SDK is sufficiently recent such that it supports
+macros. If it isn't new enough, you will get a version solve error when running
+`flutter pub get`.
 
-## Released dev SDK
-
-To use a released Dev SDK, look at the `pubspec.yaml` file in this repo and
-download exactly the version you see set in the environment constraint (which
-should also match the ref you see in each of the dependencies). Then run a
-`pub get`.
-
-## Local SDK build
-
-To use a local SDK, open up the `pubspec_overrides.yaml` file, uncomment all the
-lines in it, and update the paths to point at your local SDK. Make sure you do
-a build of your local SDK as well.
-
-In this setup, you may find the APIs have changed and you get some errors. If so
-feel free to update things, as well as the SDK versions in the `pubspec.yaml`
-file, and send a PR to update. Or, file an issue on this repo.
+We recommend using the `main` flutter channel, and running `flutter update`
+often.
 
 # Running the example
 
