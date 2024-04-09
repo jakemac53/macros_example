@@ -2,26 +2,26 @@ An package to use as a starting point for trying out Dart macros.
 
 # SDK setup
 
-First, you need to ensure your SDK is compatible with this package, and also
-that the versions of the various dependencies are lined up. You can use
-either a released dev SDK or a local build of the SDK.
+First, you need to ensure your SDK is sufficiently recent such that it supports
+macros. If it isn't new enough, you will get a version solve error when running
+`dart pub get`.
 
-## Released dev SDK
+You can use either a very recently released dev SDK or a local build of the SDK.
 
-To use a released Dev SDK, look at the `pubspec.yaml` file in this repo and
-download exactly the version you see set in the environment constraint (which
-should also match the ref you see in each of the dependencies). Then run a
-`pub get`.
+## Hacking on package:_macros
 
-## Local SDK build
+As long as you don't change any version numbers, you can hack on the `_macros`
+package in the SDK, do normal builds, and use that custom build SDK just as  you
+normally would.
 
-To use a local SDK, open up the `pubspec_overrides.yaml` file, uncomment all the
-lines in it, and update the paths to point at your local SDK. Make sure you do
-a build of your local SDK as well.
+## Hacking on package:macros
 
-In this setup, you may find the APIs have changed and you get some errors. If so
-feel free to update things, as well as the SDK versions in the `pubspec.yaml`
-file, and send a PR to update. Or, file an issue on this repo.
+If you need to alter the published `macros` package, you will want to add a
+dependency override on it, to point at `pkg/macros` in your local SDK checkout.
+
+The easiest way to do this is uncommenting the lines in the
+`pubspec_overrides.yaml` file, and updating the path to point to your SDK
+checkout
 
 # Running the example
 
@@ -51,4 +51,8 @@ find them.
 
 ## Intellij
 
-TODO: Add instructions once available
+Use IntelliJ 2024.1 or newer with Dart plugin version 241.16006 or newer.
+
+To run/debug from IntelliJ, you will need to add
+`--enable-experiment=macros --release` as "Additional run args" to the
+"Run/Debug Configuration" for your app.
