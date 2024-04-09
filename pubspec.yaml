@@ -6,11 +6,4 @@ publish_to: none
 dependencies:
   flutter:
     sdk: flutter
-  macros: ^0.1.0
-
-dependency_overrides:
-  macros:
-    git:
-      url: https://github.com/dart-lang/sdk.git
-      path: pkg/macros
-      ref: 3.5.0-15.0.dev
+  macros: ^0.1.0-0
