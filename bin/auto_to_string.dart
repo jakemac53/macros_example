@@ -5,13 +5,10 @@ void main() {
   print(jack.toString());
 }
 
+@AutoToString()
 class User {
   final String name;
   final int age;
 
   User(this.name, this.age);
-
-  @override
-  @AutoToString()
-  String toString();
 }
