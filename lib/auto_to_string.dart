@@ -19,22 +19,22 @@ macro class AutoToString
     // Give an error if the user wrote their own `toString`, there isn't
     // anything sensible for us to do in this case.
     final methods = await builder.methodsOf(clazz);
-    final existingToString =
-        methods.where((m) => m.identifier.name == 'toString').firstOrNull;
-    if (existingToString != null) {
-      throw DiagnosticException(Diagnostic(
-          DiagnosticMessage(
-              'Cannot generate toString due to existing declaration',
-              target: existingToString.asDiagnosticTarget),
-          Severity.error));
+    for (var method in methods) {
+      if (method.identifier.name == 'toString') {
+        throw DiagnosticException(Diagnostic(
+            DiagnosticMessage(
+                'Cannot generate toString due to existing declaration',
+                target: method.asDiagnosticTarget),
+            Severity.error));
+      }
     }
 
-    final [override, string] = await Future.wait([
+    final (override, string) = await (
       // ignore: deprecated_member_use
       builder.resolveIdentifier(_dartCore, 'override'),
       // ignore: deprecated_member_use
       builder.resolveIdentifier(_dartCore, 'String'),
-    ]);
+    ).wait;
     builder.declareInType(DeclarationCode.fromParts(
         ['@', override, '\n  ', string, ' toString();']));
   }
@@ -56,11 +56,12 @@ macro class AutoToString
       '{\n',
       '    // You can add breakpoints here!\n',
       '    return """\n${clazz.identifier.name} {\n',
-      for (var field in fields) ...[
-        '  ${field.identifier.name}: \${',
-        field.identifier,
-        '}\n',
-      ],
+      for (var field in fields)
+        if (!field.hasStatic) ...[
+          '  ${field.identifier.name}: \${',
+          field.identifier,
+          '}\n',
+        ],
       '}""";\n',
       '  }'
     ]));
