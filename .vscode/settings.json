@@ -1,3 +1,6 @@
 {
+	// This setting is unnecessary when using >= v3.88.1
+	// (or v3.89.20240513 for pre-release versions) of the
+	// Dart extension.
 	"dart.experimentalMacroSupport": true,
 }

@@ -36,8 +36,10 @@ You can also run/debug from your IDE using the instructions below.
 
 ## VS Code
 
-You will need to set the `"dart.experimentalMacroSupport": true,` option in your
-VS Code settings (it's already set in `.vscode/settings.json` for this project).
+If you are using a version of the Dart extension for VS Code prior to v3.88.1
+(or v3.39.20240513 if using pre-releases), you will need to set the
+`"dart.experimentalMacroSupport": true,` option in your VS Code settings (it's
+already set in `.vscode/settings.json` for this project).
 
 To run/debug from VS Code, you will need to add `"--enable-experiment=macros"`
 to `toolArgs` in your `.vscode/launch.json` (it's already done for this
